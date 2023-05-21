@@ -930,7 +930,7 @@ def get_current_bookmark_response(current_bookmark):
 @kobo.route("/<book_uuid>/<width>/<height>/<Quality>/<isGreyscale>/image.jpg")
 @requires_kobo_auth
 def HandleCoverImageRequest(book_uuid, width, height, Quality, isGreyscale):
-    book_cover = helper.get_book_cover_with_uuid(book_uuid, resolution=COVER_THUMBNAIL_SMALL)
+    book_cover = helper.get_book_cover_with_uuid(book_uuid)
     if not book_cover:
         if config.config_kobo_proxy:
             log.debug("Cover for unknown book: %s proxied to kobo" % book_uuid)
